@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/ico" href="favicon.ico">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha256-WqU1JavFxSAMcLP2WIOI+GB2zWmShMI82mTpLDcqFUg=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha256-L/W5Wfqfa0sdBNIKN9cG6QA5F2qx4qICmU2VgLruv9Y=" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Mend Test</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Mend Test</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Begin page content -->
+    <main role="main" class="flex-shrink-0" ng-app="mendApp" ng-controller="crudController">
+        <div class="container" ng-init="fetchData()">
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Task</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in tasks">
+                        <td>{{row.task}}</td>
+                        <td><button class="btn btn-outline-danger my-2 my-sm-0" type="submit" ng-click="deleteTask(row.id)">Delete</button></td>
+                    </tr>
+
+                    <tr>
+                        <td><input class="form-control mr-sm-2" type="text" placeholder="New Task" id="new_task_name" name="new_task_name" ng-model="new_task_name"></td>
+                        <td><button class="btn btn-outline-success my-2 my-sm-0" type="submit" ng-click="addTask()">Add</button></td>
+                        <td>&nbsp;</td>
+                    </tr>
+
+                </tbody>
+            </table>
+
+
+        </div>
+    </main>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Test created by Agustin Fiori for Clarika.</span>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.8/angular.min.js" integrity="sha256-23hi0Ag650tclABdGCdMNSjxvikytyQ44vYGo9HyOrU=" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
